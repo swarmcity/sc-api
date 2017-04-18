@@ -12,6 +12,10 @@ app.listen(config.httpport, function() {
 
 app.use(cors());
 
+app.get('/status', function(req, res) {
+		res.status(200).json({keys:cache.keys()});
+});
+
 app.get('/swtprice', function(req, res) {
 
 	var r = cache.get('swtprice');
